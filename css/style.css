@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --grey: #E7E7E7;
+    --grey_declin: #C7BEBE;
+    --black: #000000;
+    --white: #FFFFFF;
+    --blue: #3282F7;
+    --green: #68D9A4;
+    --orange: #ED6454;
+    --DM-font: 'DM', sans-serif;
+    --lato-font: 'Lato';
+    --roboto-font: 'Roboto';
+
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+    overflow-x: hidden;
+    font-family: var(--DM Sans);
+}
+
+header {
+    margin-top: 2.5rem;
+}
+
+.imgtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 47px;
+    text-align: center;
+    color: var(--orange);
+}
+
+/** barre de recherche */
+/* .inputGroup{
+    min-height: 50px;
+} */
+/* form{
+    height: 50px;
+    background-color: var(--grey);
+    text-align: center;
+} */
+.inputGroupBorder {
+    background: var(--grey);
+    border: none;
+    border-radius: 5px 0 0 5px;
+    padding: .75rem;
+}
+
+.inputGroupBorder::placeholder {
+    font-family: var(--Lato);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    line-height: 22px;
+    color: var(--black);
+    opacity: 0.25;
+    text-align: left;
+}
+
+.buttonGroupBorder {
+    background: var(--grey);
+    border-radius: 0 5px 5px 0;
+    padding: .75rem;
+}
+
+.btnDefault {
+    background: var(--blue);
+    border-radius: 5px;
+    font-family: var(--lato-font);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 17px;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+}
+
+/* button search */
+.buttonGroupBorder {
+    background: var(--grey);
+    border-radius: 0 5px 5px 0;
+    padding: .75rem;
+}
+
+.icon {
+    width: 16px;
+    height: auto;
+}
+
+.removeIcon {
+    margin-top: -2px;
+    margin-left: 0.25rem;
+}
+
+/*--------------------------------------------------------------
+#  DROPDOWN SEARCH
+--------------------------------------------------------------*/
+.contents {
+    display: contents;
+}
+
+.dropdownSearch {
+    padding-bottom: 0;
+    margin-left: 1rem;
+}
+
+.icon-dropdown-up {
+    display: none;
+}
+
+.inputDropdownIngredient,
+.inputDropdownAppareil,
+.inputDropdownUstensil {
+
+    background: var(--blue);
+}
+
+.inputDropdownAppareil {
+    background: var(--green);
+}
+
+.inputDropdownUstensil {
+    background: var(--orange);
+}
+
+.inputDropdownIngredient:focus {
+    background: var(--blue);
+}
+
+.inputDropdownAppareil:focus {
+    background: var(--green);
+}
+
+.inputDropdownUstensil:focus {
+    background: var(--orange);
+}
+
+.btnDropdownIngredient,
+.btnDropdownAppareil,
+.btnDropdownUstensil {    
+    background: var(--blue);
+}
+
+.btnDropdownAppareil {
+    background: #68D9A4;
+}
+
+.btnDropdownUstensil {
+    background: #ED6454;
+}
+
+.dropDownList {
+    display: none;
+    columns: 4;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: -3px;
+    position: absolute;
+    z-index: 20;
+    width: max-content;
+}
+
+.dropDownList li a {
+    font-family: var(--lato-font);
+    color: var(--white);
+    margin-top: 3px;
+    border-radius: 5px;
+    margin-top: 0px;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border: none;
+}
+
+
+#dropdownIngredientList {
+    background-color: var(--blue);
+}
+
+#dropdownAppareilList {
+    background-color: var(--green);
+}
+
+#dropdownUstensilList {
+    background-color: var(--orange);
+}
+
+/** END DROPDOWN SEARCH */
+
+
+.card-body-style {
+    background: var(--grey);
+    border-radius: 0 0 5px 5px;
+}
+
+/* .card-title {} */
+
+.card-time {
+
+    font-weight: bold;
+}
+
+.clockIcon {
+    margin-top: -2px;
+    margin-left: 0.25rem;
+}
+
+.card-description {
+
+    font-family: var(--roboto-font);
+    font-size: 12px;
+    line-height: 100%;
+}
+
+.card-ingredients {
+
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0;
+
+}
+
+.card-ingredients li {
+    margin-top: 3px;
+}
+
+span {
+    font-weight: normal;
+}
+
+
+#recipes-not-found {
+    display: none;
+    background: #E7E7E7;
+    padding: 2rem;
+    margin: 0;
+    font-family: var(--lato-font);
+    font-size: 1rem;
+}
