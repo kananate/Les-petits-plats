@@ -122,12 +122,12 @@ header {
     display: none;
 }
 
-.inputDropdownIngredient,
+ .inputDropdownIngredient,
 .inputDropdownAppareil,
 .inputDropdownUstensil {
 
     background: var(--blue);
-}
+} 
 
 .inputDropdownAppareil {
     background: var(--green);
@@ -149,12 +149,12 @@ header {
     background: var(--orange);
 }
 
-.btnDropdownIngredient,
+ .btnDropdownIngredient,
 .btnDropdownAppareil,
 .btnDropdownUstensil {    
     background: var(--blue);
 }
-
+ 
 .btnDropdownAppareil {
     background: #68D9A4;
 }
