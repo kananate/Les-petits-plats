@@ -1724,3 +1724,101 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ] 
+
+let arrayOfRecipes =[];
+let arrayOfIngredients = [];
+let arrayOfAppliance = [];
+let arrayOfUstensils = [];
+let arrayOfRecipesFilterByTag = [];
+let arrayOfRecipesFilterByText = [];
+
+
+
+//Affichage des recettes
+const setRecipesHTML = (recipes) => {
+    let recipesList = document.querySelector('#recipes');
+    /* console.log(recipesList); */
+         
+    recipes.forEach((recipe) => {
+        /* console.log(recipe) */
+        card =  `
+        <div class="col-md-4 recipe recipeId-${recipe.id}">
+            <div class="card mb-4 box-shadow no-border">
+                <img class="card-img-top" src="assets/bg-recipe.png" alt="Card image cap" />
+                <div class="card-body card-body-style">
+                    <div class="d-flex justify-content-between">
+                        <label class="card-title">${recipe.name}</label>
+                        <div class="card-time"><img src="./assets/clock-icon.png" class="icon clockIcon" /> <span>${recipe.time} min</span></div>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <ul class="col-md-6 card-ingredients" id="id-card-ingredients-${recipe.id}"></ul>
+                        <small class="col-md-6 card-description">${recipe.description}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `        
+        recipesList.innerHTML += card
+         
+        //Ajout  de la liste d'ingrédients correspondant au recette            
+     /*  recipe.ingredients.forEach(i =>{
+            let idIngredients = document.querySelector('#id-card-ingredients');
+            (idIngredients`-${recipe.id}`).append(`<li>${i.ingredient}: <span>${i.quantity ? i.quantity : ''} ${i.unit ? i.unit : ''}</span></li>`);
+        }) */  
+    });
+};
+setRecipesHTML(recipes);
+
+
+//classification des tableaux d'intégredients, d'appareils et d'ustensils
+const setArray = (recipes) => {
+    recipes.forEach(recipe => {
+        //Ajout seulement s'il ya pas de doublon dans la liste des ingredients
+        recipe.ingredients.forEach(i => {
+            if(arrayOfIngredients.indexOf(i.ingredient) === -1){
+                arrayOfIngredients.push(i.ingredient);
+            }
+        });
+        // console.log(recipe)  
+        //Ajout seulement s'il ya pas de doublon dans la liste des appareils
+        if(arrayOfAppliance.indexOf(recipe.appliance) === -1) arrayOfAppliance.push(recipe.appliance);
+        //console.log(arrayOfAppliance)
+        //Ajout seulement s'il ya pas de doublon dans la liste des ustensils
+        recipe.ustensils.map((ustensil) => { 
+            if(!arrayOfUstensils.includes(ustensil)) arrayOfUstensils.push(ustensil);            
+        }); 
+        //console.log(arrayOfUstensils)     
+    });
+    
+   setTags();
+};
+
+//Initialisation de la liste dans le dropdown
+const setTags = () => {
+    //Ajout de la liste des ingrédients
+    arrayOfIngredients.forEach((ingredient, index) => {
+        let card = `<li><a href="#" id="ingredient-${index}">${ingredient}</a></li>`
+        //console.log(ingredient, index);       
+        let drop = document.querySelector('#dropdownIngredientList');
+        drop.innerHTML += card        
+    });    
+    
+    //Ajout de la liste des appareils
+    arrayOfAppliance.forEach((appliance, index) => {
+        let card = `<li><a href="#" id="appliance-${index}">${appliance}</a></li>`
+        //console.log(appliance, index);       
+        let drop = document.querySelector('#dropdownAppareilList');
+        drop.innerHTML += card
+        
+    }); 
+
+    //Ajout de la liste des ustensils
+    arrayOfUstensils.forEach((ustensil, index) => {        
+        let card = `<li><a href="#" id="ustensil-${index}">${ustensil}</a></li>`
+        //console.log(ustensil, index);       
+        let drop = document.querySelector('#dropdownUstensilList');
+        drop.innerHTML += card        
+    });    
+};
+//setArray()
+setArray(recipes)
